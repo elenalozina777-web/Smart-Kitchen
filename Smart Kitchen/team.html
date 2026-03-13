@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Kitchen — Команда</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .authors-title { text-align: center; margin-top: 40px; font-size: 2.5rem; }
+        .authors-subtitle { text-align: center; color: #666; margin-bottom: 30px; }
+        .team-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 15px; 
+            padding: 10px;
+        }
+        .member-card { 
+            padding: 25px 15px; 
+            border-radius: 15px; 
+            text-align: center; 
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* Кольори карток */
+        .bg-grey { background-color: #f2f2f2; }
+        .bg-green { background-color: #f1f8e9; }
+        .bg-pink { background-color: #fce4ec; }
+        .bg-blue { background-color: #e3f2fd; }
+        .bg-orange { background-color: #fff3e0; }
+        .bg-purple { background-color: #f3e5f5; }
+        .bg-cyan { background-color: #e0f7fa; }
+
+        .icon-img { width: 50px; height: 50px; margin-bottom: 15px; }
+        .member-name { font-size: 1.3rem; font-weight: bold; margin-bottom: 10px; }
+        .member-role { font-weight: bold; font-size: 0.9rem; margin-bottom: 10px; color: #333; }
+        .member-desc { font-size: 0.85rem; color: #555; line-height: 1.3; }
+        
+        .btn-contact { margin-top: auto; background: none; border: 1px solid #ccc; padding: 5px 10px; cursor: pointer; border-radius: 5px; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">Головна</a><a href="pp.html">ПП</a><a href="meat.html">М'ясо</a>
+        <a href="quiz.html">Квіз</a><a href="tips.html">Поради</a><a href="faq.html">FAQ</a><a href="team.html" class="active">Команда</a>
+    </header>
+
+    <div class="container">
+        <h1 class="authors-title">Автори проекту 💻 🥑</h1>
+        <p class="authors-subtitle">Ті, хто створив цей проект з нуля</p>
+
+        <div class="team-grid">
+            <div class="member-card bg-grey">
+                <img src="https://cdn-icons-png.flaticon.com/512/428/428911.png" class="icon-img">
+                <div class="member-name">Ярослава</div>
+                <div class="member-role">Project Lead / Головна сторінка</div>
+                <div class="member-desc">Архітектура проекту, концепція та дизайн головного інтерфейсу.</div>
+                <button class="btn-contact" onclick="location.href='mailto:admin@smartkitchen..com'">Зв'язок</button> 
+                </div>
+
+            <div class="member-card bg-green">
+                <img src="https://cdn-icons-png.flaticon.com/512/2909/2909808.png" class="icon-img">
+                <div class="member-name">Олена</div>
+                <div class="member-role">Nutrition Expert / Розділ ПП</div>
+                <div class="member-desc">Куратор розділу правильного харчування та балансу інгредієнтів.</div>
+            </div>
+
+            <div class="member-card bg-pink">
+                <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" class="icon-img">
+                <div class="member-name">Оксана</div>
+                <div class="member-role">Chef de Cuisine / Розділ М'ясо</div>
+                <div class="member-desc">Розробка м'ясної карти (УТОЧНИТИ ПРІЗВИЩЕ) та технологічних карт приготування.</div>
+                </div>
+
+            <div class="member-card bg-blue">
+                <img src="https://cdn-icons-png.flaticon.com/512/686/686589.png" class="icon-img">
+                <div class="member-name">Сергій</div>
+                <div class="member-role">Game Designer / Квіз</div>
+                <div class="member-desc">Логіка інтерактивної взаємодії та ігрові механіки опитувань.</div>
+                <button class="btn-contact" onclick="location.href='quiz_test_v2.html'">Грати</button>
+            </div>
+
+<div class="member-card bg-orange">
+                <img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" class="icon-img">
+                <div class="member-name">Вікторія</div>
+                <div class="member-role">Content Manager / Поради</div>
+                <div class="member-desc">Наповнення сайту корисними лайфхаками та перевірка текстів.</div>
+            </div>
+
+            <div class="member-card bg-purple">
+                <img src="https://cdn-icons-png.flaticon.com/512/616/616430.png" class="icon-img">
+                <div class="member-name">Олексій</div>
+                <div class="member-role">Support Lead / FAQ</div>
+                <div class="member-desc">Support handles user requests 24/7 and updates FAQ database.</div>
+                </div>
+
+            <div class="member-card bg-cyan">
+                <img src="https://cdn-icons-png.flaticon.com/512/3076/3076751.png" class="icon-img">
+                <div class="member-name">Наталія</div>
+                <div class="member-role">Communications / Команда</div>
+                <div class="member-desc">Зв'язки з громадськістю та робота з партнерами проекту.</div>
+            </div>
+            
+            <div class="member-card bg-grey">
+                <div class="member-name">Вакансія</div>
+                <div class="member-role">UI/UX Designer</div>
+                <div class="member-desc">Шукаємо талановитого дизайнера в нашу команду.</div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Прихований баг для Вікторії залишаємо */
+        .bg-orange:hover { opacity: 0.5; } 
+    </style>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQ — Smart Kitchen</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .faq-item { border-bottom: 1px solid #ddd; padding: 15px 0; }
+        .faq-question { 
+            font-weight: bold; 
+            cursor: pointer; 
+            color: var(--dark-green); 
+            display: flex; 
+            justify-content: space-between; 
+        }
+        .faq-answer { 
+            display: none; 
+            padding-top: 10px; 
+            color: #555; 
+            line-height: 1.6;
+        }
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--main-green);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">Головна</a><a href="pp.html">ПП</a><a href="meat.html">М'ясо</a>
+        <a href="quiz.html">Квіз</a><a href="tips.html">Поради</a><a href="faq.html" class="active">FAQ</a><a href="team.html">Команда</a>
+    </header>
+
+    <div class="container">
+        <h1>Часті питання (FAQ) ❓</h1>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(0)">Як оформити підписку на рецепти? <span>+</span></div>
+                <div class="faq-answer">Для цього вам знадобиться свіжий огірок, трохи солі та гарний настрій. Ретельно помийте овочі перед вживанням.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(1)">Чи є у вас страви для веганів? <span>+</span></div>
+                <div class="faq-answer">
+                    <div class="loader"></div> Завантаження відповіді з сервера...
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(2)">Де ви берете продукти? <span>+</span></div>
+                <div class="faq-answer">Bacon ipsum. ПЕРЕВІРИТИ ЦЕЙ ТЕКСТ ПЕРЕД ПУБЛІКАЦІЄЮ! Спитати у менеджера Івана.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(3)">Чи можна змінити інгредієнти в рецепті? <span>+</span></div>
+                <div class="faq-answer">Так, ви можете замінювати продукти на аналогічні, якщо у вас немає алергії.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleFaq(index) {
+            const answers = document.querySelectorAll('.faq-answer');
+            const target = answers[index];
+            
+            // БАГ: Если это 4-й вопрос (индекс 3), он только открывается и никогда не закрывается
+            if(index === 3) {
+                target.style.display = 'block';
+            } else {
+                // Обычная логика (открыть/закрыть)
+                const isVisible = target.style.display === 'block';
+                target.style.display = isVisible ? 'none' : 'block';
+            }
+        }
+    </script>
+</body>
+</html>

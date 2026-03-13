@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>М'ясне Меню — Smart Kitchen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">Головна</a><a href="pp.html">ПП</a><a href="meat.html" class="active">М'ясо</a>
+        <a href="quiz.html">Квіз</a><a href="tips.html">Поради</a><a href="faq.html">FAQ</a><a href="team.html">Команда</a>
+    </header>
+
+    <div class="container">
+        <h1 onclick="document.body.style.fontSize='5px'" style="cursor:pointer">М'ясне Меню 🥩</h1>
+        
+        <div class="filter-panel">
+            <input type="text" id="searchInput" placeholder="Введіть назву (наприклад: стейк)...">
+            <button class="btn-recipe" style="width: auto;" onclick="runFilter();">Застосувати</button>
+        </div>
+
+        <div class="recipe-grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1546241072-48010ad28abb?w=400" onclick="toggleIng('m1')">
+                <div class="card-content"><h3>стейк рібай</h3><button class="btn-recipe" onclick="toggleIng('m1')">Рецепт</button></div>
+                <div id="m1" class="ingredients-list">Яловичина, часник, масло.</div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400" onclick="toggleIng('m2')">
+                <div class="card-content"><h3>свинячі ребра</h3><button class="btn-recipe" onclick="toggleIng('m2')">Рецепт</button></div>
+                <div id="m2" class="ingredients-list">Ребра, соус BBQ.</div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=400" onclick="toggleIng('m3')">
+                <div class="card-content"><h3>курка гриль</h3><button class="btn-recipe" onclick="toggleIng('m3')">Рецепт</button></div>
+                <div id="m3" class="ingredients-list">Курка, паприка, лимон.</div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1551135049-8a33b5883817?w=400" onclick="toggleIng('m4')">
+                <div class="card-content"><h3>бургер класік</h3><button class="btn-recipe" onclick="toggleIng('m4')">Рецепт</button></div>
+                <div id="m4" class="ingredients-list">Котлета, сир, булка.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function runFilter() {
+            const val = document.getElementById('searchInput').value; // БАГ: Регістр
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const title = card.querySelector('h3').innerText;
+                card.style.display = title.includes(val) ? "block" : "none";
+            });
+        }
+
+        function toggleIng(id) {
+            const el = document.getElementById(id);
+            if(!el) return;
+            const isVisible = el.style.display === 'block';
+            document.querySelectorAll('.ingredients-list').forEach(l => l.style.display = 'none');
+            el.style.display = isVisible ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>

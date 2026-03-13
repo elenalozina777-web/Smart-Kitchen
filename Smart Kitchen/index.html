@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Kitchen — Головна</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="active">Головна</a><a href="pp.html">ПП</a><a href="meat.html">М'ясо</a>
+        <a href="quiz.html">Квіз</a><a href="tips.html">Поради</a><a href="faq.html">FAQ</a><a href="team.html">Команда</a>
+    </header>
+
+    <div class="container">
+        <h1>Знайди свою страву 🥗</h1>
+        
+        <div class="filter-panel">
+            <input type="text" id="searchInput" placeholder="Введіть назву (спробуйте 'паста')...">
+            <button class="btn-recipe" style="width: auto;" onclick="runFilter();">Застосувати</button>
+        </div>
+
+        <div class="recipe-grid" id="recipeGrid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400" onclick="toggleIng('h1')">
+                <div class="card-content">
+                    <h3>боул з тунцем</h3> <button class="btn-recipe" onclick="toggleIng('h1')">Рецепт</button>
+                </div>
+                <div id="h1" class="ingredients-list">Тунець, рис, авокадо.</div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400" onclick="toggleIng('h2')">
+                <div class="card-content">
+                    <h3>грецький салат</h3>
+                    <button class="btn-recipe" onclick="toggleIng('h2')">Рецепт</button>
+                </div>
+                <div id="h2" class="ingredients-list">Фета, томати, оливки.</div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1473093226795-af9932fe5856?w=400" onclick="toggleIng('h3')">
+                <div class="card-content">
+                    <h3>паста томато</h3>
+                    <button class="btn-recipe" onclick="toggleIng('h3')">Рецепт</button>
+                </div>
+                <div id="h3" class="ingredients-list">Спагетті, черрі, базилік.</div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=400">
+                <div class="card-content">
+                    <h3>гарбузовий суп</h3>
+                    <button class="btn-recipe" style="background-color:#a5d6a7;">Рецепт</button>
+                </div>
+                <div class="ingredients-list">Баг: кнопка не працює.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function runFilter() {
+            // Отримуємо текст як є (без .toLowerCase())
+            const val = document.getElementById('searchInput').value; 
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('h3').innerText;
+                
+                // РЕАЛЬНИЙ БАГ: Порівняння йде без урахування регістру.
+                // Якщо в інпуті "Паста", а в заголовку "паста" - результат буде false.
+                if (title.includes(val)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        function toggleIng(id) {
+            const el = document.getElementById(id);
+            if(!el) return;
+            const isVisible = el.style.display === 'block';
+            document.querySelectorAll('.ingredients-list').forEach(l => l.style.display = 'none');
+            el.style.display = isVisible ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Kitchen — Корисне харчування</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Стилі ТІЛЬКИ для цієї сторінки --> 
+     <style> 
+     
+
+section { 
+    margin-top: 40px; 
+}
+
+h2 { 
+    color: #27ae60; 
+    margin-bottom: 15px; 
+}
+
+/* Hero */
+.hero-image { 
+    width: 100%; 
+    max-height: 350px; 
+    object-fit: cover; 
+}
+
+/* GRID тільки для цієї сторінки */
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 992px) {
+    .recipe-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .recipe-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Фільтр */
+.filter-btn { 
+    margin: 5px; 
+    transition: 0.2s; 
+}
+
+.active-filter { 
+    background-color: #27ae60 !important; 
+}
+
+/* Теги */
+.tags { margin: 8px 0 12px 0; }
+
+.tag {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 0.7rem;
+    border-radius: 20px;
+    font-weight: 600;
+    color: white;
+}
+
+.tag.breakfast { background: #f39c12; }
+.tag.lunch { background: #27ae60; }
+.tag.dinner { background: #8e44ad; }
+.tag.snack { background: #e67e22; }
+.tag.vegetarian { background: #2ecc71; }
+.tag.protein { background: #2980b9; }
+.tag.lowcalorie { background: #16a085; }
+
+/* Сховати картки */
+.recipe-card.hide {
+    display: none !important;
+}
+
+    </style>
+
+</head>
+<body>
+
+<header>
+    <a href="index.html">Головна</a>
+    <a href="pp.html" class="active">ПП</a>
+    <a href="meat.html">М'ясо</a>
+    <a href="quiz.html">Квіз</a>
+    <a href="tips.html">Поради</a>
+    <a href="faq.html">FAQ</a>
+    <a href="team.html">Команда</a>
+</header>
+
+<main class="container">
+    <h1>Корисне харчування 🥗</h1>
+    <img src="https://recepty.uaplatforma.com.ua/wp-content/uploads/2025/01/legka-vecherya-1024x694.webp" 
+     alt="Корисне харчування"
+     class="hero-image">
+
+
+     <h2>🥑 Легкі та корисні рецепти</h2>
+
+    <section class="filter-section">
+    
+    <button class="btn filter-btn" data-filter="all">Усі</button>
+    <button class="btn filter-btn" data-filter="breakfast">Сніданок</button>
+    <button class="btn filter-btn" data-filter="lunch">Обід</button>
+    <button class="btn filter-btn" data-filter="dinner">Вечеря</button>
+    <button class="btn filter-btn" data-filter="snack">Перекус</button>
+    <button class="btn filter-btn" data-filter="vegetarian">Вегетаріанські</button>
+    <button class="btn filter-btn" data-filter="protein">Багато білка</button>
+    <button class="btn filter-btn" data-filter="lowcalorie">Низькокалорійні</button>
+</section>
+
+
+
+
+
+    <!-- РЕЦЕПТИ -->
+    <section id="healthy-recipes">
+       
+        <div class="recipe-grid">
+
+            <div class="recipe-card" data-category="breakfast vegetarian lowcalorie">
+                <img src="https://api.toastpad.com/images/581453410_1755323103.webp?w=650&h=360" alt="Вівсянка з ягодами">
+                <p>Сніданок: Вівсянка з ягодами</p>
+                <small>Енергія на ранок</small>
+                <div class="tags">
+    <span class="tag breakfast">Сніданок</span>
+    <span class="tag vegetarian">Вегетаріанська</span>
+    <span class="tag lowcalorie">Низькокалорійна</span>
+</div>
+                <details>
+                    <summary>Дивитись рецепт</summary>
+                    <ul>
+                        <li>1/2 склянки вівсянки</li>
+                        <li>1 склянка рослинного молока</li>
+                        <li>Жменя ягід</li>
+                        <li>Насіння чіа</li>
+                    </ul>
+                    <p><strong>Приготування:</strong> Залийте вівсянку гарячим молоком, додайте ягоди.</p>
+                </details>
+            </div>
+
+            <div class="recipe-card" data-category="lunch vegetarian protein">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400" alt="Боул з кіноа та овочами">
+                <p>Обід: Кіноа боул</p>
+                <small>Білки + клітковина</small>
+                <div class="tags">
+    <span class="tag lunch">Обід</span>
+    <span class="tag vegetarian">Вегетаріанська</span>
+    <span class="tag protein">Білкова</span>
+</div>
+
+                <details>
+                    <summary>Дивитись рецепт</summary>
+                    <ul>
+                        <li>Кіноа</li>
+                        <li>Авокадо</li>
+                        <li>Запечені овочі</li>
+                    </ul>
+                </details>
+            </div>
+
+            <div class="recipe-card" data-category="dinner protein">
+                <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400" alt="Лосось з броколі">
+                <p>Вечеря: Лосось з броколі</p>
+                <small>Омега-3</small>
+                <div class="tags">
+    <span class="tag dinner">Вечеря</span>
+    <span class="tag protein">Білкова</span>
+</div>
+
+                <details>
+                    <summary>Дивитись рецепт</summary>
+                    <ul>
+                        <li>Лосось</li>
+                        <li>Броколі</li>
+                        <li>Лимон</li>
+                    </ul>
+                </details>
+            </div>
+
+            <div class="recipe-card" data-category="snack vegetarian protein">
+    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400" alt="Грецький йогурт з фруктами та горіхами">
+    <p>Перекус: Йогурт з фруктами</p>
+    <small>Білок + вітаміни</small>
+    <div class="tags">
+    <span class="tag snack">Перекус</span>
+    <span class="tag protein">Білкова</span>
+    <span class="tag vegetarian">Вегетаріанська</span>
+</div>
+
+    <details>
+        <summary>Дивитись рецепт</summary>
+        <ul>
+            <li>200 г грецького йогурту</li>
+            <li>Жменя ягід або банан</li>
+            <li>Горіхи або насіння</li>
+        </ul>
+        <p><strong>Приготування:</strong> Змішайте всі інгредієнти в мисці. Готово за 2 хвилини.</p>
+    </details>
+</div>
+
+<div class="recipe-card" data-category="lunch vegetarian lowcalorie">
+    <img src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=400" alt="Овочевий суп-пюре">
+    <p>Обід: Овочевий суп-пюре</p>
+    <small>Легко для травлення</small>
+    <div class="tags">
+    <span class="tag lunch">Обід</span>
+    <span class="tag vegetarian">Вегетаріанська</span>
+    <span class="tag lowcalorie">Низькокалорійна</span>
+</div>
+
+    <details>
+        <summary>Дивитись рецепт</summary>
+        <ul>
+            <li>Броколі</li>
+            <li>Морква</li>
+            <li>Картопля</li>
+            <li>Овочевий бульйон</li>
+        </ul>
+        <p><strong>Приготування:</strong> Відваріть овочі 20 хв, подрібніть блендером до кремової текстури.</p>
+    </details>
+</div>
+
+<div class="recipe-card" data-category="dinner vegetarian protein">
+    <img src="https://shuba.life/static/content/thumbs/1824x912/6/02/y4bonr---c2x1x50px50p-up--2a905d04174d0e6479376e2575199026.jpg?w=400" alt="Салат з нутом та овочами">
+    <p>Вечеря: Салат з нутом</p>
+    <small>Рослинний білок</small>
+    <div class="tags">
+    <span class="tag dinner">Вечеря</span>
+    <span class="tag vegetarian">Вегетаріанська</span>
+    <span class="tag protein">Білкова</span>
+</div>
+
+    <details>
+        <summary>Дивитись рецепт</summary>
+        <ul>
+            <li>Відварений нут</li>
+            <li>Помідори чері</li>
+            <li>Огірок</li>
+            <li>Оливкова олія, лимон</li>
+        </ul>
+        <p><strong>Приготування:</strong> Змішайте інгредієнти, додайте заправку з олії та лимонного соку.</p>
+    </details>
+</div>
+
+        </div>
+    </section>
+
+    <!-- ЗДОРОВІ ЗВИЧКИ -->
+    <section id="healthy-habits">
+        <h2>💚 Маленькі звички — великий результат</h2>
+        <ul>
+            <li>Пийте 1.5–2 л води</li>
+            <li>Їжте овочі щодня</li>
+            <li>Менше цукру</li>
+            <li>Запікання замість смаження</li>
+        </ul>
+    </section>
+
+    <!-- КОРИСНІ РЕСУРСИ -->
+    <section id="resources">
+        <h2>📚 Надійні джерела</h2>
+        <ul>
+            <li><a href="https://moz.gov.ua/uk/jak-harchuvatisja-zbalansovano" target="_blank">МОЗ України</a></li>
+            <li><a href="https://www.unicef.org/ukraine/stories/healthy-plate" target="_blank">UNICEF — Здорова тарілка</a></li>
+        </ul>
+    </section>
+
+    <!-- МОТИВАЦІЯ -->
+    <section id="motivation">
+        <h2>🌟 Турбота про себе починається з тарілки</h2>
+        <p>Маленькі щоденні вибори формують ваше самопочуття, енергію та настрій.</p>
+    </section>
+
+    <a href="index.html" class="btn">На головну</a>
+</main>
+
+<script>
+const filterButtons = document.querySelectorAll(".filter-btn");
+const recipeCards = document.querySelectorAll(".recipe-card");
+
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+
+        recipeCards.forEach(card => {
+    const categories = card.dataset.category;
+
+    if (filter === "all" || categories.split(" ").includes(filter)) {
+        card.classList.remove("hide");
+    } else {
+        card.classList.add("hide");
+    }
+});
+
+
+        filterButtons.forEach(btn => btn.classList.remove("active-filter"));
+        button.classList.add("active-filter");
+    });
+});
+document.querySelector('[data-filter="all"]').click();
+
+</script>
+
+
+</body>*/
+</html>
